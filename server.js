@@ -30,7 +30,7 @@ var server= app.listen(8080 || processs.env.PORT, function(){
 
 app.get("/board/:x/:y/:roomDensity/:level/:playerNum", function(req,res){
     var exec = require('child_process').exec;
-    exec('java -jar dungeon_map.jar '+x+' '+y+' '+roomDensity+' '+level+' '+playernum+'', function(error, stdout, stderr){
+    exec('java -jar dungeon_map.jar '+req.params.x+' '+req.params.y+' '+req.params.roomDensity+' '+req.params.level+' '+req.params.playernum+'', function(error, stdout, stderr){
         var linkTitle;
         if(error){
             console.log(error);
