@@ -30,6 +30,8 @@ var server= app.listen(app.get('port'), function(){
 });
 
 app.get("/board/:x/:y/:roomDensity/:level/:playerNum", function(req,res){
+    res.header('Access-Control-Allow-Origin', "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
     var exec = require('child_process').exec;
     exec('java -jar dungeon_map.jar '+req.params.x+' '+req.params.y+' '+req.params.roomDensity+' '+req.params.level+' '+req.params.playerNum+'', function(error, stdout, stderr){
         var linkTitle;
