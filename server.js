@@ -6,7 +6,7 @@ imgur.setClientId('a60df619ce86905');
 
 var express= require('express');
 var app= express();
-app.set('port', 3000);
+app.set('port', process.env.PORT || 3000);
 //app.use(express.static(path.join(__dirname, 'public')));
 
 //error logs
@@ -23,7 +23,7 @@ app.get("/", function(req, res) {
 });
 
 //server start
-var server= app.listen(8080 || processs.env.PORT, function(){
+var server= app.listen(app.get('port'), function(){
     var host= server.address().address;
     var port= server.address().port;
     console.log("SERVER STARTED at http://%s:%s",host,port);
