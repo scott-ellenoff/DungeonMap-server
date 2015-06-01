@@ -1,6 +1,7 @@
 //var spawn= require('child_process').spawn;
 //var child= spawn('java', ['params1', 'param2']);
 var imgur= require('imgur');
+var qunit= require('qunitjs');
 imgur.setClientId('a60df619ce86905');
 
 var express= require('express');
@@ -30,14 +31,14 @@ var server= app.listen(8080 || processs.env.PORT, function(){
 
 app.get("/board/:x/:y/:roomDensity/:level/:playerNum", function(req,res){
     var exec = require('child_process').exec;
-    exec('java -jar dungeon_map.jar '+req.params.x+' '+req.params.y+' '+req.params.roomDensity+' '+req.params.level+' '+req.params.playernum+'', function(error, stdout, stderr){
+    exec('java -jar dungeon_map.jar '+req.params.x+' '+req.params.y+' '+req.params.roomDensity+' '+req.params.level+' '+req.params.playerNum+'', function(error, stdout, stderr){
         var linkTitle;
         if(error){
             console.log(error);
         }
         imgur.uploadFile('Dungeon.jpg').then(function(json){
             console.log(json.data.link);
-            res.json(json.data.link);
+            res.json(json);
         })
         .catch(function(err){
             console.log(err.message);

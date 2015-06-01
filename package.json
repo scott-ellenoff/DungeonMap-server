@@ -11,7 +11,9 @@
     "mongoose": "^3.8.20",
     "multer": "^0.1.7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "qunitjs": "^1.18.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
