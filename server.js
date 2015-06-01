@@ -28,7 +28,7 @@ var server= app.listen(8080 || processs.env.PORT, function(){
     var port= server.address().port;
     console.log("SERVER STARTED at http://%s:%s",host,port);
 });
-
+/*
 app.get("/board/:x/:y/:roomDensity/:level/:playerNum", function(req,res){
     var exec = require('child_process').exec;
     exec('java -jar dungeon_map.jar '+req.params.x+' '+req.params.y+' '+req.params.roomDensity+' '+req.params.level+' '+req.params.playerNum+'', function(error, stdout, stderr){
@@ -45,3 +45,4 @@ app.get("/board/:x/:y/:roomDensity/:level/:playerNum", function(req,res){
         });
     });
 });
+*/
